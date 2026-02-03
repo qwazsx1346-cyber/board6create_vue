@@ -4,7 +4,7 @@ import httpService from '@/services/httpService';
 import router from '@/router';
 
 const state = reactive({
-    board: {
+    data: {
         id: 0,
         title: '',
         contents: ''
@@ -15,6 +15,11 @@ const state = reactive({
 
 const submit = async () => {
     const result = await httpService.save(state.data);
+    if(result === 1) {
+        alert('등록 성공!');
+    } else {
+        alert('등록 실패!');
+    }
 }
 </script>
 
@@ -22,10 +27,10 @@ const submit = async () => {
 <h3>글쓰기</h3>
 
 <div> <!--v-bind는 단방향, 반드시 v-model을 사용-->
-    <label>제목: <input type="text" v-model="state.board.title"></label>
+    <label>제목: <input type="text" v-model="state.data.title"></label>
 </div>
 <div>
-    <label>내용: <textarea v-model="state.board.contents"></textarea></label>
+    <label>내용: <textarea v-model="state.data.contents"></textarea></label>
 </div>
 <div>
   <button @click="submit">등록</button>
