@@ -20,6 +20,9 @@ const submit = async () => {
     } else {
         alert('등록 실패!');
     }
+    router.push({
+        path: '/'
+    });
 }
 </script>
 

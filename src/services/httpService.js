@@ -13,6 +13,11 @@ class HttpService {
         const res = await axios.get(this.#url, { params }); //{'params': params}와 같음
         return res.data;
     }
+
+    async findById(id) {
+        const res = await axios.get(`${this.#url}/${id}`);
+        return res.data;
+    }
 }
 
 export default new HttpService(); //export해줘야 다른곳에서 쓸 수 있음.
