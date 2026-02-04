@@ -7,19 +7,15 @@ const state = reactive({
     searchText: ''
 });
 
-const httpSearch = async params => {
-    state.list = await httpService.findAll(params);
-}
-
-onMounted(() => {
-    httpSearch();
+onMounted(async () => {
+    state.list = await httpService.findAll();
 });
 
-const search = () => {
+const search = async () => {
     const params = {
         search_text: state.searchText
-    };
-    httpSearch(params);
+    }
+    state.list = await httpService.findAll(params);
 }
 
 </script>

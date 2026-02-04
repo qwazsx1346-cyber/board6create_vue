@@ -33,7 +33,7 @@ const submit = async () => {
     <label>내용: <textarea v-model="state.data.contents"></textarea></label>
 </div>
 <div>
-  <button @click="submit">등록</button>
+    <button @click="submit">등록</button>
 </div>
 <!-- 제목, 내용 작성할 수 있고 작성된 글 등록할 수 있는 버튼 -->
 </template>
